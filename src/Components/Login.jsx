@@ -13,7 +13,7 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { GlobaleData } from '../App';
 
 
@@ -41,20 +41,25 @@ export default function SignInSide() {
     //   password: data.get('password'),
 
     // });
-    if(data.get('email')  !=='' && data.get('password') !=='' && login===true){
-      navigate('home')
-      logout(false)
+    // console.log(login);
+
+    if (data.get('email') !== '' && data.get('password') !== '') {
+      if (login === true) {
+
+        navigate('home')
+        logout(false)
+      }
 
     }
-    else{
+    else {
       alert("Please fill the Data")
     }
-     
-  
+
+
   };
-  const navigate=useNavigate();
-const context=React.useContext(GlobaleData)
-const {login,logout}=context
+  const navigate = useNavigate();
+  const context = React.useContext(GlobaleData)
+  const { login, logout } = context
   return (
     <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
@@ -119,7 +124,7 @@ const {login,logout}=context
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
-                onClick={()=>{
+                onClick={() => {
                 }}
               >
                 Sign In
