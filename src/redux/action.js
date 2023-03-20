@@ -4,9 +4,10 @@ export const productData = (data)=>{
         data : data
     }
 }
-export const catagaryData=(data)=>{
-    return{
-        type:"catagaryData",
-        data:data
-    }
-}
+// export const catagaryData=(data)=>{
+   
+//     return{
+//         type:"catagaryData",
+//         data:data
+//     }
+// }

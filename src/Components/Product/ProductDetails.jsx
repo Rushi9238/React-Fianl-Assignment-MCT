@@ -1,11 +1,11 @@
-
+import React from 'react'
 import '../../CSS_files/ProductDetails.css'
 import { useSelector } from 'react-redux'
 
 
 const ProductDetails = () => {
   const selectore = useSelector((state) => state.productcartData)
-  // console.log(selectore);
+ 
  
   return (
     <>

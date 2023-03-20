@@ -10,25 +10,26 @@ import ContactUs from '../src/Components/ContactUs'
 import Login from '../src/Components/Login'
 import ProductDetails from './Components/Product/ProductDetails';
 import { Category } from './Contstant/Category';
-// import {useDispatch} from 'react-redux'
-// import { catagaryData } from './redux/action';
+import {useDispatch} from 'react-redux'
+import { catagaryData } from './redux/categaryAction';
+
 export const GlobaleData= createContext()
 
 function App() {
-  // const dispatch=useDispatch();
+  const dispatch=useDispatch();
   const location=useLocation()
   const [category,setCategory]=useState([]);
   const [login,logout]=useState(true)
 
 useEffect(()=>{
   Category(setCategory)
-  // dispatch(catagaryData(category))
 },[])
+dispatch(catagaryData(category))
 
   return (
     <div className="App">
       {location.pathname !== '/' && <Navbar logout={logout}/>}
-     <GlobaleData.Provider value={{category,login,logout}} >
+     <GlobaleData.Provider value={{login,logout}} >
      <Routes>
         <Route path='/' element={<Login/>}/>
         <Route path='/home' element={<Home/>}/>

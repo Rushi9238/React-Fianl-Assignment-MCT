@@ -1,18 +1,21 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { GlobaleData } from '../../App'
+// import { GlobaleData } from '../../App'
 import { productData } from '../../redux/action'
 import { categoryHandler } from '../../Contstant/ProductDataAPI'
 import '../../CSS_files/Product.css'
+import { useSelector } from 'react-redux'
 
 
 
 const Product = () => {
   const dispatch=useDispatch()
+   const category=useSelector((ele)=>ele.categaryCartData)
+  console.log(category);
 
-  const context = useContext(GlobaleData)
-  const { category } = context
+  // const context = useContext(GlobaleData)
+  // const { category } = context
   const [categoryName, setCategoryName] = useState(category[0])
   const [productlist, setProductlist] = useState([])
 
