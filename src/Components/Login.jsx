@@ -32,7 +32,12 @@ function Copyright(props) {
 }
 
 const theme = createTheme();
-export default function SignInSide() {
+export default function SignInSide() {   //main function start
+
+  const navigate = useNavigate();
+  const context = React.useContext(GlobaleData)
+  const { login, logout } = context
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -49,17 +54,13 @@ export default function SignInSide() {
         navigate('home')
         logout(false)
       }
-
     }
     else {
       alert("Please fill the Data")
     }
-
-
   };
-  const navigate = useNavigate();
-  const context = React.useContext(GlobaleData)
-  const { login, logout } = context
+
+
   return (
     <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
@@ -106,6 +107,7 @@ export default function SignInSide() {
                 autoFocus
               />
               <TextField
+              
                 margin="normal"
                 required
                 fullWidth
@@ -113,7 +115,9 @@ export default function SignInSide() {
                 label="Password"
                 type="password"
                 id="password"
+                
                 autoComplete="current-password"
+                
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
@@ -124,7 +128,8 @@ export default function SignInSide() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
-                onClick={() => {
+                onClick={() => { 
+                  
                 }}
               >
                 Sign In

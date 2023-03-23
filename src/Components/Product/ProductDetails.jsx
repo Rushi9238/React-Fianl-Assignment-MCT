@@ -1,10 +1,15 @@
 import React from 'react'
 import '../../CSS_files/ProductDetails.css'
 import { useSelector } from 'react-redux'
+import {Link} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+
 
 
 const ProductDetails = () => {
   const selectore = useSelector((state) => state.productcartData)
+  const navigate = useNavigate();
+
  
  
   return (
@@ -16,7 +21,9 @@ const ProductDetails = () => {
           :
           <div className='productDetails'>
            <div className="productHeading">
+            <h3 onClick={()=>navigate(-1)}>Back</h3>
               <h1>{selectore.category} Category</h1>
+              {/* <Link to={'/product'}> back</Link> */}
             </div>
             <div className='bottom-discribe'>
               <div className="imgDiv">
